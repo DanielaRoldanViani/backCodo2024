@@ -1,9 +1,10 @@
+
+require('dotenv').config()
 const express = require('express');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
 
 const app = express();
-const port = 5500;
 
 // Middleware para analizar datos URL-encoded y JSON
 app.use(express.urlencoded({ extended: true }));
@@ -12,13 +13,12 @@ app.use(bodyParser.json());
 
 // Configuración de la conexión a la base de datos MySQL
 const connection = mysql.createConnection({
-  host: 'localhost',                    // Actualizar host a la dirección del servidor
-  user: 'id22089080_grupo16',            // Usuario de la base de datos
-  password: 'Grupo16*',                  // Contraseña de la bse de datos        
-  database: 'id22089080_academy',       // Nombre de la base de datos
-  //port: 3306,
-  connectTimeout: 3000,                 // Tiempo de espera de 10 segundos
-  debug: true                            // Habilitar depuración
+  host: process.env.HOST_DB,          // Actualizar host a la dirección del servidor
+  user: process.env.USER_DB,          // Usuario de la base de datos
+  password: process.env.PASSWORD_DB,  // Contraseña de la bse de datos        
+  database: process.env.DATABASE,     // Nombre de la base de datos
+  connectTimeout: 3000,               // Tiempo de espera de 3 segundos
+  //debug: true                         // Habilitar depuración
 });
 
 // Conexión a la base de datos MySQL
@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
 
 // Ruta para obtener todos los usuarios
 app.get('/users', (req, res) => {
-  const query = 'SELECT * FROM users';
+  const query = 'SELECT * FROM usuarios';
   connection.query(query, (error, results) => {
     if (error) {
       console.error('Error ejecutando la consulta:', error);
@@ -69,6 +69,7 @@ app.use((err, req, res, next) => {
 });
 
 // Inicio del servidor
-app.listen(port, () => {
-  console.log(`Servidor corriendo en el puerto: ${port}`);
+const portServer = process.env.PORT_SERVER || 3001
+app.listen(portServer, () => {
+  console.log(`Servidor corriendo en el puerto: ${portServer}`);
 });
