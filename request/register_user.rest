@@ -2,11 +2,13 @@ POST http://localhost:5500/register
 Content-type: application/json
 
 {
-    "fname": "matias",
-    "lname": "bobbio",
-    "email": "efbingenieria@gmail.com",
-    "birthday": "09-02-1983",
+    "nom": "prueba",
+    "apellido": "prueba",
+    "email": "prueba@prueba.com",
+    "fecha_nac": "2024-01-01",
     "telefono": "0123456789",
-    "interes": "HTML",
-    "level": "1"
+    "cursos_interes": "HTML",
+    "fk_nivel": "1",
+    "password": "1234",
+    "fk_rol": "1"
 }
