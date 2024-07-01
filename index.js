@@ -28,6 +28,45 @@ app.get('/users', (req, res) => {
   });
 });
 
+// Ruta para obtener todos los usuarios
+app.get('/roles', (req, res) => {
+  const query = 'SELECT * FROM roles';
+  connection.query(query, (error, results) => {
+    if (error) {
+      console.error('Error ejecutando la consulta:', error);
+      res.status(500).send('Error al obtener los usuarios');
+      return;
+    }
+    res.json(results);
+  });
+});
+
+// Ruta para obtener todos los usuarios
+app.get('/niveles', (req, res) => {
+  const query = 'SELECT * FROM niveles';
+  connection.query(query, (error, results) => {
+    if (error) {
+      console.error('Error ejecutando la consulta:', error);
+      res.status(500).send('Error al obtener los usuarios');
+      return;
+    }
+    res.json(results);
+  });
+});
+
+// Ruta para obtener todos los usuarios
+app.get('/cursos', (req, res) => {
+  const query = 'SELECT * FROM cursos';
+  connection.query(query, (error, results) => {
+    if (error) {
+      console.error('Error ejecutando la consulta:', error);
+      res.status(500).send('Error al obtener los usuarios');
+      return;
+    }
+    res.json(results);
+  });
+});
+
 // Ruta para registrar un nuevo usuario
 app.post('/register', (req, res) => {
   const { fname, lname, email, birthday, telefono, interes, level } = req.body;

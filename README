@@ -1,0 +1,15 @@
+Requerimientos para VSC:
+
+npm install express
+npm install mysql
+npm install dotenv
+npm install -D nodemon
+
+Agregar achivo .env y poner las credenciales:
+
+PORT_SERVER = xxx
+HOST_DB = xxx
+USER_DB = xxx
+PASSWORD_DB = xxx
+DATABASE = xxx
+
