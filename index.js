@@ -1,34 +1,14 @@
-
 require('dotenv').config()
 const express = require('express');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
-
 const app = express();
+const connection = require('./db')
 
 // Middleware para analizar datos URL-encoded y JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
-// Configuración de la conexión a la base de datos MySQL
-const connection = mysql.createConnection({
-  host: process.env.HOST_DB,          // Actualizar host a la dirección del servidor
-  user: process.env.USER_DB,          // Usuario de la base de datos
-  password: process.env.PASSWORD_DB,  // Contraseña de la bse de datos        
-  database: process.env.DATABASE,     // Nombre de la base de datos
-  connectTimeout: 3000,               // Tiempo de espera de 3 segundos
-  //debug: true                         // Habilitar depuración
-});
-
-// Conexión a la base de datos MySQL
-connection.connect((err) => {
-  if (err) {
-    console.error('Error conectando a la base de datos:', err.stack);
-    return;
-  }
-  console.log('Conexión exitosa a la base de datos MySQL.');
-});
 
 // Ruta principal
 app.get('/', (req, res) => {
@@ -37,7 +17,7 @@ app.get('/', (req, res) => {
 
 // Ruta para obtener todos los usuarios
 app.get('/users', (req, res) => {
-  const query = 'SELECT * FROM usuarios';
+  const query = 'SELECT * FROM users';
   connection.query(query, (error, results) => {
     if (error) {
       console.error('Error ejecutando la consulta:', error);
