@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academy Code</title>
+  <link rel="icon" href="media/icon/iconoAC.png">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/cursos.css">
+  <link rel="stylesheet" href="css/carrusel.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/formulario.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+
+<body>
+  <header>
+    <div class="header-logo"><!-- LOGO Y LINK AL INICIO -->
+      <a href="#home" class="router-link-active">
+        <img src="media/logoAC.svg" alt="Academy Code Logo">
+      </a>
+    </div>
+    <nav class="header-menu"><!-- NAVEGADOR POR LAS OTRAS SECCIONES -->
+      <ul>
+        <li><a href="#inicio">INICIO</a></li>
+        <li><a href="#cursos">CURSOS</a></li>
+        <li><a href="#misCursos">MIS CURSOS</a></li>
+        <li><a href="#registro">REGISTRARSE</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id=inicio class="home" aria-label="Presentacion de Academy Code"><!-- SECCION 1. INICIO -->
+      <div>
+        <div class="home_title"><!-- TITULO -->
+          <h1>ACADEMY CODE</h1>
+          <h2>TU FUTURO AQUÍ</h2>
+        </div>
+        <div id="empresas">
+          <div class="home_subtitle"><!-- Cierre pagina principal -->
+            <P>Empresas que nos avalan</P>
+          </div>
+          <div class="home_img"><!-- Imagenes de empresas -->
+            <img src="media/img/amazon.svg" alt="Logo Amazon" width="170" height="35" class="AmazonLogo">
+            <img src="media/img/google.svg" alt="Logo Google" width="170" height="35" class="GoogleLogo">
+            <img src="media/img/mercadolibre.svg" alt="Logo Mercadolibre" width="170" height="35"
+              class="MercadolibreLogo">
+            <img src="media/img/disney.svg" alt="Logo Disney" width="170" height="35" class="DisneyLogo">
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr>
+    <section class="secciones" aria-label="Cursos disponibles"><!-- SECCION 2. CURSOS -->
+      <h2 id="cursos">CURSOS</h2>
+      <div class="cursos">
+        <article class="curso"><!-- curso 1 -->
+          <h3>HTML 5</h3>
+          <img src="media/img/html.svg" alt="Imagen HTML5">
+          <P>El HTML5 es un estándar que sirve para definir la estructura, el diseño y el contenido de una página web. En realidad, se trata de un código, un lenguaje (HTML) que define los contenidos que forman parte de una página web, como imágenes, texto, vídeos, juegos, marcos, estilo de letra, etc.</P>
+        </article>
+        <article class="curso"><!-- curso 2 -->
+          <h3>CSS 3</h3>
+          <img src="media/img/css-3.svg" alt="Imagen CURSO 2">
+          <P> El CSS podría definirse como un tipo de lenguaje que permite definir y crear la presentación visual de un documento ya estructurado y escrito en un lenguaje de marcado como puede ser HTML. Es decir, permite generar el diseño visual de páginas web e interfaces de usuario.</P>
+        </article>
+        <article class="curso"><!-- curso 3 -->
+          <h3>NODE JS</h3>
+          <img src="media/img/node.svg" alt="Imagen CURSO 3">
+          <P>Node (o más correctamente: Node. js) es un entorno que trabaja en tiempo de ejecución, de código abierto, multi-plataforma, que permite a los desarrolladores crear toda clase de herramientas de lado servidor y aplicaciones en JavaScript.</P>
+        </article>
+        <article class="curso"><!-- curso 4 -->
+          <h3>JAVASCRIPT</h3>
+          <img src="media/img/javascript.svg" alt="Imagen CURSO 4">
+          <P>JavaScript es un lenguaje de programación que los desarrolladores utilizan para hacer páginas web interactivas. Desde actualizar fuentes de redes sociales a mostrar animaciones y mapas interactivos, las funciones de JavaScript pueden mejorar la experiencia del usuario de un sitio web.</P>
+        </article>
+        <article class="curso"><!-- curso 5 -->
+          <h3>MONGODB</h3>
+          <img src="media/img/mongodb.svg" alt="Imagen CURSO 5">
+          <P>MongoDB es una base de datos NoSQL orientada a documentos que apareció a mediados de la década de 2000. Se utiliza para almacenar volúmenes masivos de datos. A diferencia de una base de datos relacional SQL tradicional, MongoDB no se basa en tablas y columnas. Los datos se almacenan como colecciones y documentos.</P>
+        </article>
+        <article class="curso"><!-- curso 6 -->
+          <h3>PHP</h3>
+          <img src="media/img/php.svg" alt="Imagen CURSO 6">
+          <P>PHP (acrónimo recursivo de PHP: Hypertext Preprocessor ) es un lenguaje de código abierto muy popular especialmente adecuado para el desarrollo web y que puede ser incrustado en HTML.</P>
+        </article>
+        <article class="curso"><!-- curso 7 -->
+          <h3>PYTHON</h3>
+          <img src="media/img/python.svg" alt="Imagen CURSO 7">
+          <P>Python es un lenguaje de programación ampliamente utilizado en las aplicaciones web, el desarrollo de software, la ciencia de datos y el machine learning (ML). Los desarrolladores utilizan Python porque es eficiente y fácil de aprender, además de que se puede ejecutar en muchas plataformas diferentes.</P>
+        </article>
+        <article class="curso"><!-- curso 8 -->
+          <h3>SQL SERVER</h3>
+          <img src="media/img/sqlserver.svg" alt="Imagen CURSO 8">
+          <P>SQL Server Integration Services es una plataforma para generar soluciones de integración de datos de alto rendimiento, lo que incluye paquetes que proporcionan procesamiento de extracción, transformación y carga (ETL) para almacenamiento de datos</P>
+        </article>
+      </div>
+    </section>
+    <hr>
+
+    <section class="secciones" aria-label="Cursos liberados"><!-- SECCION 3. MIS CURSOS -->
+      <div>
+        <h2 id="misCursos">MIS CURSOS</h2>
+      </div>
+      <div class="carrusel">
+        <!-- Radio buttons para controlar el carrusel -->
+        <input type="radio" id="video1" name="video" checked>
+        <input type="radio" id="video2" name="video">
+        <input type="radio" id="video3" name="video">
+
+        <!-- Contenedor del carrusel de videos -->
+        <div class="video-container">
+          <iframe class="video1" width="560" height="315"
+            src="https://www.youtube.com/embed/3nYLTiY5skU?si=WCaFGFAP_m9e83bw" title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <iframe class="video2" width="560" height="315"
+            src="https://www.youtube.com/embed/hrxjBqZWsb0?si=v82w8pRPaX_Nl-7C" title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <iframe class="video3" width="560" height="315"
+            src="https://www.youtube.com/embed/yB4n_K7dZV8?si=cPzutExXUxH94phX" title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+        <div class="button-container">
+          <!-- Botones de navegación -->
+          <div class="navegacion video1">
+            <label for="video2">→</label>
+          </div>
+          <div class="navegacion video2">
+            <label for="video1">←</label>
+            <label for="video3">→</label>
+          </div>
+          <div class="navegacion video3">
+            <label for="video2">←</label>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <hr>
+    <section class="seccionFormulario" aria-label="Formulario de registro"><!-- SECCION 4. REGISTRARSE -->
+
+      <div class="formulario">
+        <form action="http://localhost:5500/register" method="POST">
+          <fieldset>
+            <legend id="registro" class="nombreForm">Formulario de registro</legend>
+            <div id="errorMessages"></div>
+        
+            <label for="fname">Nombre:</label>
+            <input type="text" id="fname" name="fname" required>
+            <span class="error" id="fnameError"></span><br><br>
+        
+            <label for="lname">Apellido:</label>
+            <input type="text" id="lname" name="lname" required>
+            <span class="error" id="lnameError"></span><br><br>
+        
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <span class="error" id="emailError"></span><br><br>
+        
+            <label for="birthday">Fecha de nacimiento:</label>
+            <input type="date" id="birthday" name="birthday" required>
+            <span class="error" id="birthdayError"></span><br><br>
+        
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required>
+            <span class="error" id="telefonoError"></span><br><br>
+        
+            <label for="interes">Interés en cursos:</label>
+            <select id="interes" name="interes" required>
+              <option class="seleccion" value="none">Elija curso gratuito</option>
+              <option class="seleccion" value="frontend">JavaScript</option>
+              <option class="seleccion" value="backend">PHP</option>
+              <option class="seleccion" value="mongodb">MongoDB</option>
+            </select>
+            <span class="error" id="interesError"></span><br><br>
+        
+            <label>Nivel de experiencia:</label>
+            <ul class="form">
+              <li><input type="radio" name="level" value="1" checked>Principiante</li>
+              <li><input type="radio" name="level" value="2">Intermedio</li>
+              <li><input type="radio" name="level" value="3">Avanzado</li>
+            </ul>
+        
+            <input class="botRegistrar" type="submit" value="Registrar">
+          </fieldset>
+        </form>
+        
+        
+      </div>         
+        
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="lineaFooter">
+      <hr>
+    </div>
+    <div class="redes_sociales"><!-- Redes sociales -->
+
+      <a href="https://www.facebook.com"> <i class="fa-brands fa-facebook face"></i></a>
+      <a href="https://www.linkedin.com"> <i class="fa-brands fa-linkedin in"></i></a>
+      <a href="https://www.youtube.com"> <i class="fa-brands fa-youtube you"></i></a>
+      <a href="https://www.instagram.com"> <i class="fa-brands fa-instagram insta"></i></a>
+      <a href="https://www.discord.com"> <i class="fa-brands fa-discord disc"></i></a>
+
+      <!-- <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+        <img src="media/icon/facebook.svg" alt="Logo facebook" loading="lazy">
+      </a>
+      <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+        <img src="/media/icon/linkedin.svg" alt="Logo linkedin" loading="lazy">
+      </a>
+      <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
+        <img src="/media/icon/youtube.svg" alt="Logo youtube" loading="lazy">
+      </a>
+      <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+        <img src="media/icon/instagram.svg" alt="logo instagram" loading="lazy">
+      </a>
+      <a href="https://www.discord.com" target="_blank" rel="noopener noreferrer">
+        <img src="media/icon/discord.svg" alt="Logo discord" loading="lazy">
+      </a>-->
+    </div>
+
+    <div class="footer_links "><!-- Accesos a otras areas -->
+      <div>
+        <h4>NOSOTROS</h4>
+        <ul>
+          <li><a href="#" class=""> Equipo </a></li>
+          <li><a href="#" class=""> En el mundo </a></li>
+          <li><a href="#" class=""> Pregustas frecuentes </a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>ALUMNOS</h4>
+        <ul>
+          <li><a href="#" class="">Alumno</a></li>
+          <li><a href="#" class="">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>CORPORATIVO</h4>
+        <ul>
+          <li><a href="#" class="">Trabaja con nosotros</a></li>
+          <li><a href="#" class="">Capacitaciones</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="lineaFooter">
+      <hr>
+    </div>
+    <div class="footer_TyC"><!-- Términos y condiciones -->
+
+      <a href="/terminos-y-condiciones.html" target="_blank" class="underline"> Términos y condiciones </a>
+      <p>Academy Code Copyright 2024</p>
+    </div>
+
+  </footer>
+  <script src="validacion.js"></script>
+</body>
+
+</html>
