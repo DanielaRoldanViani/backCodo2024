@@ -1,0 +1,12 @@
+POST http://localhost:5500/register
+Content-type: application/json
+
+{
+    "fname": "matias",
+    "lname": "bobbio",
+    "email": "efbingenieria@gmail.com",
+    "birthday": "09-02-1983",
+    "telefono": "0123456789",
+    "interes": "HTML",
+    "level": "1"
+}
