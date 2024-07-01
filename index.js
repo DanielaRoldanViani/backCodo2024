@@ -69,9 +69,9 @@ app.get('/cursos', (req, res) => {
 
 // Ruta para registrar un nuevo usuario
 app.post('/register', (req, res) => {
-  const { fname, lname, email, birthday, telefono, interes, level } = req.body;
-  const query = 'INSERT INTO users (fname, lname, email, birthday, telefono, interes, level) VALUES (?, ?, ?, ?, ?, ?, ?)';
-  connection.query(query, [fname, lname, email, birthday, telefono, interes, level], (error, results) => {
+  const { nom, apellido, email, fecha_nac, telefono, cursos_interes, fk_nivel, password, fk_rol } = req.body;
+  const query = 'INSERT INTO users (nom, apellido, email, fecha_nac, telefono, cursos_interes, fk_nivel, password, fk_rol) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+  connection.query(query, [nom, apellido, email, fecha_nac, telefono, cursos_interes, fk_nivel, password, fk_rol], (error, results) => {
     if (error) {
       console.error('Error ejecutando la consulta:', error);
       res.status(500).send('Error al crear el usuario');
@@ -80,6 +80,7 @@ app.post('/register', (req, res) => {
     res.json({ id: results.insertId, ...req.body });
   });
 });
+
 
 // Middleware para manejar errores
 app.use((err, req, res, next) => {
