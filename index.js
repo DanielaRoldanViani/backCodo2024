@@ -81,6 +81,50 @@ app.post('/register', (req, res) => {
   });
 });
 
+// Ruta para actualizar un usuario existente
+app.put('/users/:id', (req, res) => {
+  const { id } = req.params;
+  const fields = [];
+  const values = [];
+
+  // Añade dinámicamente los campos y valores proporcionados en el request body
+  for (let [key, value] of Object.entries(req.body)) {
+    fields.push(`${key} = ?`);
+    values.push(value);
+  }
+
+  // Añade el ID del usuario al final de los valores
+  values.push(id);
+
+  if (fields.length > 0) {
+    const query = `UPDATE users SET ${fields.join(', ')} WHERE id_usuario = ?`;
+    connection.query(query, values, (error, results) => {
+      if (error) {
+        console.error('Error ejecutando la consulta:', error);
+        res.status(500).send('Error al actualizar el usuario');
+        return;
+      }
+      res.json({ message: 'Usuario actualizado exitosamente', results });
+    });
+  } else {
+    res.status(400).send('No se proporcionaron campos para actualizar');
+  }
+});
+
+// Ruta para eliminar un usuario existente
+app.delete('/users/:id', (req, res) => {
+  const { id } = req.params;
+  const query = 'DELETE FROM users WHERE id_usuario = ?';
+  connection.query(query, [id], (error, results) => {
+    if (error) {
+      console.error('Error ejecutando la consulta:', error);
+      res.status(500).send('Error al eliminar el usuario');
+      return;
+    }
+    //res.json({ message: 'Usuario eliminado exitosamente', results });
+    res.status(204).end();
+  });
+});
 
 // Middleware para manejar errores
 app.use((err, req, res, next) => {

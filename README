@@ -13,3 +13,7 @@ USER_DB = xxx
 PASSWORD_DB = xxx
 DATABASE = xxx
 
+Para correr el codigo en mdo desarrollo (cada vez que realizamos un cambio y guardamos se ejecuta 
+el codigo nuevmente) escribir en linea de comandos:
+
+npm run dev
