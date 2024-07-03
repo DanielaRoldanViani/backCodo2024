@@ -4,6 +4,7 @@ const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const app = express();
 const connection = require('./db')
+const bcrypt = require('bcrypt')
 
 // Middleware para analizar datos URL-encoded y JSON
 app.use(express.urlencoded({ extended: true }));
@@ -67,19 +68,24 @@ app.get('/cursos', (req, res) => {
   });
 });
 
-// Ruta para registrar un nuevo usuario
-app.post('/register', (req, res) => {
-  const { nom, apellido, email, fecha_nac, telefono, cursos_interes, fk_nivel, password, fk_rol } = req.body;
-  const query = 'INSERT INTO users (nom, apellido, email, fecha_nac, telefono, cursos_interes, fk_nivel, password, fk_rol) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
-  connection.query(query, [nom, apellido, email, fecha_nac, telefono, cursos_interes, fk_nivel, password, fk_rol], (error, results) => {
-    if (error) {
-      console.error('Error ejecutando la consulta:', error);
-      res.status(500).send('Error al crear el usuario');
-      return;
-    }
-    res.json({ id: results.insertId, ...req.body });
-  });
-});
+// Ruta para registrar un nuevo usuario (se utiliza bcrypt para guardar contraseña codificada en BD)
+app.post('/users', async (req, res) => {
+  try {
+    const { nom, apellido, email, fecha_nac, telefono, cursos_interes, fk_nivel, passwordHash, fk_rol } = req.body;
+    const saltRounds = 10
+    //console.log(passwordHash)
+    const password = await bcrypt.hash(passwordHash, saltRounds)
+    //console.log(password)
+  
+    const query = 'INSERT INTO users (nom, apellido, email, fecha_nac, telefono, cursos_interes, fk_nivel, password, fk_rol) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+    await connection.query(query, [nom, apellido, email, fecha_nac, telefono, cursos_interes, fk_nivel, password, fk_rol], (error, results) => {
+    res.json({ id: results.insertId, ...req.body })
+    })
+  }catch (error) {
+    console.error('Error ejecutando la consulta:', error)
+    res.status(500).send('Error al crear el usuario')
+  }
+})
 
 // Ruta para actualizar un usuario existente
 app.put('/users/:id', (req, res) => {

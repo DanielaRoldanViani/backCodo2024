@@ -4,6 +4,7 @@ npm install express
 npm install mysql
 npm install dotenv
 npm install -D nodemon
+npm install bcrypt
 
 Agregar achivo .env y poner las credenciales:
 
