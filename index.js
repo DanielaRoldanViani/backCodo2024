@@ -16,6 +16,8 @@ app.get('/', (req, res) => {
   res.send('<h1>¡Bienvenido a mi aplicación Node.js con Express y MySQL!<h1>');
 });
 
+const PORT = process.env.PORT || 3000;
+
 // Ruta para obtener todos los usuarios
 app.get('/users', (req, res) => {
   const query = 'SELECT * FROM users';
