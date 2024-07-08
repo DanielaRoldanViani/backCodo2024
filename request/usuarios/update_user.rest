@@ -1,6 +1,6 @@
-PUT http://localhost:5500/users/1
+PUT http://localhost:5500/usuarios/8
 Content-type: application/json
 
 {
-  "email": "efbingenieria@gmail.com"
+  "email": "prueba8@gmail.com"
 }
