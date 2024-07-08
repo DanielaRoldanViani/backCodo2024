@@ -16,7 +16,7 @@ const cursosRouter = require('./controllers/cursos')
 
 // Ruta principal
 app.get('/', (req, res) => {
-  res.send('<h1>¡Bienvenido a mi aplicación Node.js con Express y MySQL!<h1>');
+  res.send('<h1>¡Bienvenido al Backend AcademyCode realizado con Node.js con Express y MySQL!<h1>');
 });
 
 app.use('/usuarios', usersRouter)
