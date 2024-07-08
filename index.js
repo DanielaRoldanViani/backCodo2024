@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const cors = require('cors')
 const connection = require('./db')
 
 // Middleware para analizar datos URL-encoded y JSON
