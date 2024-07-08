@@ -15,6 +15,8 @@ const rolesRouter = require('./controllers/roles')
 const nivelesRouter = require('./controllers/niveles')
 const cursosRouter = require('./controllers/cursos')
 
+app.use(cors()) // Permitimos que cualquier origen funcione en nuestra API
+
 // Ruta principal
 app.get('/', (req, res) => {
   res.send('<h1>¡Bienvenido al Backend AcademyCode realizado con Node.js con Express y MySQL!<h1>');
