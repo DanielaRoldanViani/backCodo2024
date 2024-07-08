@@ -17,8 +17,8 @@ app.get('/', (req, res) => {
 });
 
 // Ruta para obtener todos los usuarios
-app.get('/users', (req, res) => {
-  const query = 'SELECT * FROM users';
+app.get('/usuarios', (req, res) => {
+  const query = 'SELECT * FROM usuarios';
   connection.query(query, (error, results) => {
     if (error) {
       console.error('Error ejecutando la consulta:', error);
@@ -69,7 +69,7 @@ app.get('/cursos', (req, res) => {
 });
 
 // Ruta para registrar un nuevo usuario (se utiliza bcrypt para guardar contraseña codificada en BD)
-app.post('/users', async (req, res) => {
+app.post('/usuarios', async (req, res) => {
   try {
     const { nom, apellido, email, fecha_nac, telefono, cursos_interes, fk_nivel, passwordHash, fk_rol } = req.body;
     const saltRounds = 10
@@ -77,7 +77,7 @@ app.post('/users', async (req, res) => {
     const password = await bcrypt.hash(passwordHash, saltRounds)
     //console.log(password)
   
-    const query = 'INSERT INTO users (nom, apellido, email, fecha_nac, telefono, cursos_interes, fk_nivel, password, fk_rol) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+    const query = 'INSERT INTO usuarios (nom, apellido, email, fecha_nac, telefono, cursos_interes, fk_nivel, password, fk_rol) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
     await connection.query(query, [nom, apellido, email, fecha_nac, telefono, cursos_interes, fk_nivel, password, fk_rol], (error, results) => {
     res.json({ id: results.insertId, ...req.body })
     })
@@ -88,7 +88,7 @@ app.post('/users', async (req, res) => {
 })
 
 // Ruta para actualizar un usuario existente
-app.put('/users/:id', (req, res) => {
+app.put('/usuarios/:id', (req, res) => {
   const { id } = req.params;
   const fields = [];
   const values = [];
@@ -103,7 +103,7 @@ app.put('/users/:id', (req, res) => {
   values.push(id);
 
   if (fields.length > 0) {
-    const query = `UPDATE users SET ${fields.join(', ')} WHERE id_usuario = ?`;
+    const query = `UPDATE usuarios SET ${fields.join(', ')} WHERE id_usuario = ?`;
     connection.query(query, values, (error, results) => {
       if (error) {
         console.error('Error ejecutando la consulta:', error);
@@ -118,9 +118,9 @@ app.put('/users/:id', (req, res) => {
 });
 
 // Ruta para eliminar un usuario existente
-app.delete('/users/:id', (req, res) => {
+app.delete('/usuarios/:id', (req, res) => {
   const { id } = req.params;
-  const query = 'DELETE FROM users WHERE id_usuario = ?';
+  const query = 'DELETE FROM usuarios WHERE id_usuario = ?';
   connection.query(query, [id], (error, results) => {
     if (error) {
       console.error('Error ejecutando la consulta:', error);
