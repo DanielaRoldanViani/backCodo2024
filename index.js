@@ -3,7 +3,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const cors = require('cors')
-const connection = require('./db')
 
 // Middleware para analizar datos URL-encoded y JSON
 app.use(express.urlencoded({ extended: true }));
@@ -19,7 +18,7 @@ app.use(cors()) // Permitimos que cualquier origen funcione en nuestra API
 
 // Ruta principal
 app.get('/', (req, res) => {
-  res.send('<h1>¡Bienvenido al Backend AcademyCode realizado con Node.js con Express y MySQL!<h1>');
+  res.send('<h1>¡Bienvenido al Backend AcademyCode v2.0 realizado con Node.js con Express y MySQL!<h1>');
 });
 
 app.use('/usuarios', usersRouter)
